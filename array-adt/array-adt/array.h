@@ -22,6 +22,7 @@ private:
 public:
     Array();
     Array(int sz);
+    Array(int* A, int sz, int len);
     
     void Display();
     void Append(int x);
@@ -40,6 +41,11 @@ public:
     Array* Union(Array &arr2);
     Array* Diff(Array &arr2);
     Array* Inter(Array &arr2);
+    //Sorted
+    void FindMissingElements1(void);
+    void FindMissingElements2(void);
+    void FindDuplicateElements1(void);
+    void FindDuplicateElements2(void);
     
     ~Array();
 };

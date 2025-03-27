@@ -7,6 +7,8 @@
 
 #include "array.h"
 #include <iostream>
+#include <memory>
+
 using namespace std;
 
 Array::Array() : size(10), length(0) {
@@ -15,6 +17,16 @@ Array::Array() : size(10), length(0) {
 
 Array::Array(int sz) : size(sz), length(0) {
     A = new int[size];
+}
+
+Array::Array(int* Arr, int sz, int len) {
+    size = sz;
+    length = len;
+    A = new int[size];
+    
+    for(int i=0;i<length;i++){
+        A[i] = Arr[i];
+    }
 }
 
 void Array::swap(int *x, int *y) {
@@ -321,6 +333,70 @@ Array* Array::Inter(Array &arr2){
     
     return pArray;
     
+}
+
+void Array::FindMissingElements1(void){
+    if(!isSorted()){
+        return;
+    }
+    int diff = A[0];
+    
+    for(int i= 0; i<length; i++){
+        while(A[i]-i > diff){
+            cout << "Missing element: " << diff + i << endl;
+            diff++;
+        }
+    }
+}
+
+void Array::FindMissingElements2(void){
+    
+    int h = Max();
+    int l= Min();
+    
+    unique_ptr<Array> pHash = make_unique<Array>(h+1);
+    
+    for(int i= 0; i<length; i++){
+        pHash->A[A[i]]++;
+    }
+    
+    cout << "This array is missing: " <<endl;
+    for(int i=l; i<=h; i++)
+        if(pHash->A[i] == 0)
+            cout << i <<"\t";
+    
+    cout << endl;
+}
+
+void Array::FindDuplicateElements1(void){
+    if(!isSorted()){
+        return;
+    }
+    
+    for(int i=0; i<(length-1); i++){
+        if(A[i] != A[i+1])
+            continue;
+        
+        int j;
+        
+        for(j=i+1; j<length && A[i]==A[j];j++);
+        cout << "The element " << A[i] << " is repeated " << j-i << " times." <<endl;
+        i = j-1;
+    }
+}
+
+void Array::FindDuplicateElements2(void){
+    int sz = Max();
+    int l = Min();
+    unique_ptr<Array> pH = make_unique<Array>(sz+1);
+    pH-> length = sz+1;
+    
+    for(int i=0;i<length;i++)
+        pH->A[A[i]]++;
+    
+    for(int i=l; i<pH->length; i++)
+        if(pH->A[i]>1)
+            cout << "Element " << i<< " is repeated "<< pH->A[i] << " times." << endl;
 }
 
 Array::~Array() {

@@ -11,48 +11,16 @@
 using namespace std;
 
 int main() {
-    Array *arr;
-    Array *uArr;
-    int n;
-    int x;
-    //int index;
+    //int arr1[10] = {3,6,8,8,10,12,15,15,15,20};
+    int arr2[10] = {8,3,6,4,6,5,6,8,2,2};
     
-    cout << "Enter your array size ";
-    cin >> n;
+    Array *pArr1 = new Array(arr2,10,10);
     
-    arr = new Array(n);
+    pArr1->Display();
     
-    cout << "Appending new value: ";
-    cin >> x;
+    pArr1->FindDuplicateElements2();
     
-    arr->Append(x);
-    
-    cout << "Appending new value: ";
-    cin >> x;
-    
-    arr->Append(x);
-    
-    cout << "Appending new value: ";
-    cin >> x;
-    
-    arr->Append(x);
-    
-    cout << "Array 1" << endl;
-    arr->Display();
-    
-    Array arr2 = Array(x);
-    
-    arr2.Append(4);
-    arr2.Append(6);
-    arr2.Append(7);
-    
-    cout << "Array 2" << endl;
-    arr2.Display();
-    
-    cout << "Inter"<< endl;
-    uArr = arr->Inter(arr2);
-    
-    uArr->Display();
+    cout << "Out Of Missing Elements" << endl;
     
     /*
     cout << "Union"<< endl;
@@ -96,7 +64,6 @@ int main() {
     arr->Insert(x);
     arr->Display();
     */
-    delete arr;
-    delete uArr;
+    delete pArr1;
     return 0;
 }
