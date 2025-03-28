@@ -16,6 +16,42 @@ Sparse::Sparse(int m, int n, int num){
     e = std::make_unique<Element[]>(num);
 }
 
+Sparse Sparse::operator+(const Sparse &s) const{
+    if(m != s.m || n!= s.n)
+    {
+        throw std::invalid_argument("Cannot add, matrices are different sizes.");
+    }
+    
+    Sparse result = Sparse(m,n,num+s.num);
+    int i,j,k;
+    i=j=k=0;
+    
+    while (i<num && j<s.num) {
+        if(e[i].i < s.e[j].i)
+            result.e[k++] = e[i++];
+        else if(e[i].i > s.e[j].i)
+            result.e[k++] = s.e[j++];
+        else{
+            if(e[i].j<s.e[j].j)
+                result.e[k++] = e[i++];
+            else if(e[i].j>s.e[j].j)
+                result.e[k++] = s.e[j++];
+            else if(e[i].j==s.e[j].j){
+                result.e[k] = e[i];
+                result.e[k++].x = e[i++].x + s.e[j++].x;
+            }
+        }
+            
+    }
+    
+    for(;i<num;i++) result.e[k++]=e[i];
+    for(;j<s.num;j++) result.e[k++]=s.e[j];
+    
+    result.num = k;
+    
+    return result;
+}
+
 std::istream & operator>>(std::istream &is, Sparse &s){
     std::cout << "Enter non-zero elements in order of row/col appearence: " <<std::endl;
     for (int i=0; i<s.num; i++) {

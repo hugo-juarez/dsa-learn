@@ -9,10 +9,18 @@
 #include "sparse.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    Sparse s = Sparse(3, 4, 2);
-    std::cin >> s;
-    std::cout << s;
+    
+    Sparse s1 = Sparse(5, 5, 5);
+    Sparse s2 = Sparse(5, 5, 5);
+    
+    std::cin >> s1;
+    std::cin >> s2;
+    
+    Sparse sum = s1 + s2;
+    
+    std::cout << "First Matrix "<<std::endl<<s1;
+    std::cout << "Second Matrix "<<std::endl<<s2;
+    std::cout << "Sum Matrix "<<std::endl<<sum;
     
     return 0;
 }

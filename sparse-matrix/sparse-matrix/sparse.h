@@ -25,6 +25,7 @@ private:
     
 public:
     Sparse(int m, int n, int num);
+    Sparse operator+(const Sparse &s) const;
     friend std::istream & operator>>(std::istream &is, Sparse &s);
     friend std::ostream & operator<<(std::ostream &os, Sparse &s);
 };
