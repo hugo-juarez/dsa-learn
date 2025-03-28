@@ -1,28 +1,24 @@
 //
-//  lower_triangle.h
+//  upper_triangle.h
 //  matrices
 //
 //  Created by Hugo Juarez on 3/27/25.
 //
 
-#ifndef LOWER_TRIAG_H
-#define LOWER_TRIAG_H
+#ifndef UPPER_TRIAG_H
+#define UPPER_TRIAG_H
 
 #include "matrices.h"
 
-class LowerTriangle : public Matrices
-{
+class UpperTriangle : public Matrices {
 private:
     int getIndex(int i, int j);
-    
 public:
-    LowerTriangle(int n);
-    void Create() override;
+    UpperTriangle(int n);
+    void Create(void) override;
     void Set(int i, int j, int x) override;
     int Get(int i, int j) override;
     void Display() override;
-    
 };
-
 
 #endif

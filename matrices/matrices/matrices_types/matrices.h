@@ -11,6 +11,9 @@
 
 class Matrices
 {
+protected:
+    int n;
+    std::unique_ptr<int[]> A;
 public:
     virtual void Create(void) = 0;
     virtual void Set(int i, int j, int x) = 0;

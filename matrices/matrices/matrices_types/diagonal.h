@@ -7,15 +7,10 @@
 #ifndef DIAGONAL_H
 #define DIAGONAL_H
 
-#include <memory>
 #include "matrices.h"
 
 class Diagonal : public Matrices
 {
-private:
-    int n;
-    std::unique_ptr<int[]> A;
-    
 public:
     
     Diagonal(int n);
