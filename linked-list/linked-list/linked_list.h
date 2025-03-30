@@ -16,6 +16,7 @@ private:
     struct Node{
         int data;
         std::shared_ptr<Node> next;
+        ~Node(){std::cout<< "Node with value "<<data <<" deteled!"<<std::endl;}
     };
     std::shared_ptr<Node> first;
     std::shared_ptr<Node> last;
@@ -23,6 +24,7 @@ private:
 public:
     LinkedList();
     LinkedList(int A[], int n);
+    int Delete(int pos);
     void Insert(int pos, int x);
     void Append(int x);
     void InsertSorted(int x);

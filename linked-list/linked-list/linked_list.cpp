@@ -119,6 +119,40 @@ bool LinkedList::isSorted(void){
     return true;
 }
 
+int LinkedList::Delete(int pos){
+    if(!first)
+        throw std::logic_error("Array is empty!");
+    
+    if(pos < 0 || pos >= Length())
+        throw std::out_of_range("Position is out of bounds!");
+    
+    std::shared_ptr<Node> p = first;
+    std::shared_ptr<Node> q = nullptr;
+    int x;
+    
+    if(pos==0){
+        x = first->data;
+        if(first == last)
+            first = last = nullptr;
+        else
+            first = first->next;
+        return x;
+    }
+    
+    for(int i=0; i<pos; i++){
+        q = p;
+        p = p->next;
+    }
+    
+    x = p->data;
+    q->next = p->next;
+    
+    if(p == last)
+        last = q;
+    
+    return x;
+}
+
 int LinkedList::Length(void){
     int count = 0;
     std::shared_ptr<Node> temp = first;

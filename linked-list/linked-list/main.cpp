@@ -30,7 +30,10 @@ int main(int argc, const char * argv[]) {
      */
     std::cout <<"Sorted: "<< (link.isSorted() ? "True" : "False") << std::endl;
     link.InsertSorted(8);
+    std::cout << "Deleting"<<std::endl;
+    link.Delete(2);
     link.Append(20);
+    
     std::cout << "After Insert Linked List" << std::endl;
     std::cout << link << std::endl;
 }
