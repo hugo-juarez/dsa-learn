@@ -34,6 +34,9 @@ int main(int argc, const char * argv[]) {
     //link.Delete(2);
     link.RemoveDuplicates();
     link.Append(20);
+    link.ReverseArray();
+    link.ReverseSlidingPtr();
+    link.Append(50);
     std::cout << "After Insert Linked List" << std::endl;
     std::cout << link << std::endl;
 }

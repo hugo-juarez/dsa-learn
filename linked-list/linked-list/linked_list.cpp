@@ -52,6 +52,49 @@ void LinkedList::RemoveDuplicates(void){
     last = q;
 }
 
+void LinkedList::ReverseArray(void){
+    
+    if(!first) //If list is empty
+        return;
+    
+    std::unique_ptr<int[]> A = std::make_unique<int[]>(Length());
+    std::shared_ptr<Node> p = first;
+    int i=0;
+    
+    while (p) {
+        A[i++] = p->data;
+        p = p->next;
+    }
+    
+    p = first;
+    i--;
+    
+    while (p) {
+        p->data = A[i--];
+        p = p->next;
+    }
+    
+}
+
+void LinkedList::ReverseSlidingPtr(void){
+    if(!first)
+        return;
+    
+    std::shared_ptr<Node> p = first;
+    std::shared_ptr<Node> q = nullptr;
+    std::shared_ptr<Node> r = nullptr;
+    
+    while(p){
+        r=q;
+        q=p;
+        p=p->next;
+        q->next = r;
+    }
+    
+    last = first;
+    first = q;
+}
+
 void LinkedList::Insert(int pos, int x){
     if(pos < 0 || pos > Length()){
         throw std::runtime_error("Invalid index");

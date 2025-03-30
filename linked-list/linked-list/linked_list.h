@@ -25,6 +25,8 @@ public:
     LinkedList();
     LinkedList(int A[], int n);
     void RemoveDuplicates(void);
+    void ReverseArray(void);
+    void ReverseSlidingPtr(void);
     void Insert(int pos, int x);
     void Append(int x);
     void InsertSorted(int x);
