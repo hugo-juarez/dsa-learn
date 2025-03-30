@@ -8,6 +8,10 @@
 #include "linked_list.h"
 #include <memory>
 
+LinkedList::LinkedList(){
+    first = nullptr;
+}
+
 LinkedList::LinkedList(int A[], int n){
     
     if(n==0)
@@ -24,6 +28,30 @@ LinkedList::LinkedList(int A[], int n){
         temp->data = A[i];
     }
     
+}
+
+int LinkedList::Length(void){
+    int count = 0;
+    std::shared_ptr<Node> temp = first;
+    
+    while(temp){
+        count++;
+        temp = temp->next;
+    }
+    
+    return count;
+}
+
+int LinkedList::Sum(void){
+    int sum = 0;
+    std::shared_ptr<Node> temp = first;
+    
+    while(temp){
+        sum += temp->data;
+        temp = temp->next;
+    }
+    
+    return sum;
 }
 
 std::ostream & operator<<(std::ostream &os, const LinkedList &l){

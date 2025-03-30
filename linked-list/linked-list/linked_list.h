@@ -22,6 +22,8 @@ private:
 public:
     LinkedList();
     LinkedList(int A[], int n);
+    int Length(void);
+    int Sum(void);
     friend std::ostream & operator<<(std::ostream &os, const LinkedList &l);
     
     
