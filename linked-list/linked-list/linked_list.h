@@ -25,6 +25,8 @@ public:
     LinkedList(int A[], int n);
     void Insert(int pos, int x);
     void Append(int x);
+    void InsertSorted(int x);
+    bool isSorted(void);
     int Length(void);
     int Sum(void);
     int Max(void);

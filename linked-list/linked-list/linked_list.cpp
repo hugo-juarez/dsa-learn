@@ -74,6 +74,51 @@ void LinkedList::Append(int x){
     }
 }
 
+void LinkedList::InsertSorted(int x){
+    if(!isSorted())
+        throw std::runtime_error("Linked List is not Sorted!");
+    
+    std::shared_ptr<Node> t = std::make_shared<Node>();
+    t->data = x;
+    
+    if(!first){ // If list is empty append new element
+        first = last = t;
+        return;
+    }
+    
+    std::shared_ptr<Node> p = first;
+    std::shared_ptr<Node> q = nullptr;
+    
+    while (p && p->data < x) {
+        q = p;
+        p = p->next;
+    }
+    
+    t->next = p;
+    if(q){ //Check if we are adding at the start
+        q->next = t;
+    } else {
+        first = t;
+    }
+    
+    if(!p) { //Inserting at the last value
+        last = t;
+    }
+    
+}
+
+bool LinkedList::isSorted(void){
+    std::shared_ptr<Node> p = first;
+    
+    while (p && p->next) { // While p->next  or p is not a null ptr, meaning it reached the last element
+        if(p->data > p->next->data)
+            return false;
+        p = p->next;
+    }
+    
+    return true;
+}
+
 int LinkedList::Length(void){
     int count = 0;
     std::shared_ptr<Node> temp = first;
