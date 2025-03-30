@@ -18,10 +18,13 @@ private:
         std::shared_ptr<Node> next;
     };
     std::shared_ptr<Node> first;
+    std::shared_ptr<Node> last;
     
 public:
     LinkedList();
     LinkedList(int A[], int n);
+    void Insert(int pos, int x);
+    void Append(int x);
     int Length(void);
     int Sum(void);
     int Max(void);

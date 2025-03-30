@@ -10,6 +10,7 @@
 
 LinkedList::LinkedList(){
     first = nullptr;
+    last = nullptr;
 }
 
 LinkedList::LinkedList(int A[], int n){
@@ -28,6 +29,49 @@ LinkedList::LinkedList(int A[], int n){
         temp->data = A[i];
     }
     
+    last = temp;
+    
+}
+
+void LinkedList::Insert(int pos, int x){
+    if(pos < 0 || pos > Length()){
+        throw std::runtime_error("Invalid index");
+        return;
+    }
+    
+    std::shared_ptr<Node> t = std::make_shared<Node>();
+    std::shared_ptr<Node> p = first;
+    
+    t->data = x;
+    
+    if(pos == 0){
+        t->next = first;
+        first = t;
+    } else{
+        
+        for(int i=1; i<pos;i++){
+            p = p->next;
+        }
+        
+        t->next = p->next;
+        p->next = t;
+    }
+    
+    if(!t->next)
+        last = t;
+    
+}
+
+void LinkedList::Append(int x){
+    std::shared_ptr<Node> t = std::make_shared<Node>();
+    t->data = x;
+    if(!first){ //If the pointer is empty
+        first = t;
+        last = t;
+    }else{
+        last->next = t;
+        last = t;
+    }
 }
 
 int LinkedList::Length(void){
