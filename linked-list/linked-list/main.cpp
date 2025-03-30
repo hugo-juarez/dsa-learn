@@ -16,6 +16,13 @@ int main(int argc, const char * argv[]) {
     std::cout << "My Linked List" << std::endl;
     std::cout << link << std::endl;
     std::cout << "Length: " << link.Length();
-    std::cout << " Sum: " << link.Sum();
+    std::cout << ", Sum: " << link.Sum();
+    std::cout << ", Max: " << link.Max();
     std::cout << std::endl;
+    std::cout << "Search 2: " << (link.Search(2) ? "Found" : "Not Found");
+    std::cout << ", Search 4: " << (link.Search(4) ? "Found" : "Not Found");
+    std::cout << ", Search 5: " << (link.Search(5) ? "Found" : "Not Found");
+    std::cout << std::endl;
+    std::cout << "After Search Linked List" << std::endl;
+    std::cout << link << std::endl;
 }

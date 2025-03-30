@@ -24,6 +24,8 @@ public:
     LinkedList(int A[], int n);
     int Length(void);
     int Sum(void);
+    int Max(void);
+    std::shared_ptr<Node> Search(int x);
     friend std::ostream & operator<<(std::ostream &os, const LinkedList &l);
     
     
