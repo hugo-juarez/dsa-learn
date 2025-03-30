@@ -24,11 +24,12 @@ private:
 public:
     LinkedList();
     LinkedList(int A[], int n);
-    int Delete(int pos);
+    void RemoveDuplicates(void);
     void Insert(int pos, int x);
     void Append(int x);
     void InsertSorted(int x);
     bool isSorted(void);
+    int Delete(int pos);
     int Length(void);
     int Sum(void);
     int Max(void);

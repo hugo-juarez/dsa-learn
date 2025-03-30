@@ -9,8 +9,8 @@
 #include "linked_list.h"
 
 int main(int argc, const char * argv[]) {
-    int A[] = {3,5,6,7};
-    LinkedList link = LinkedList(A,4);
+    int A[] = {3,5,5,5,5,6,7,7,7};
+    LinkedList link = LinkedList(A,9);
     //LinkedList link = LinkedList();
     
     std::cout << "My Linked List" << std::endl;
@@ -28,12 +28,12 @@ int main(int argc, const char * argv[]) {
     link.Insert(4, 20);
     link.Append(30);
      */
-    std::cout <<"Sorted: "<< (link.isSorted() ? "True" : "False") << std::endl;
-    link.InsertSorted(8);
+    //std::cout <<"Sorted: "<< (link.isSorted() ? "True" : "False") << std::endl;
+    //link.InsertSorted(8);
     std::cout << "Deleting"<<std::endl;
-    link.Delete(2);
+    //link.Delete(2);
+    link.RemoveDuplicates();
     link.Append(20);
-    
     std::cout << "After Insert Linked List" << std::endl;
     std::cout << link << std::endl;
 }

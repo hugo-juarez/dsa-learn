@@ -33,6 +33,25 @@ LinkedList::LinkedList(int A[], int n){
     
 }
 
+void LinkedList::RemoveDuplicates(void){
+    if(!isSorted()){
+        throw std::logic_error("List is not sorted!");
+    }
+    std::shared_ptr<Node> p = first;
+    std::shared_ptr<Node> q = nullptr;
+    
+    while (p) {
+        if(q && q->data == p->data){
+            q->next = p->next;
+        }
+        else
+            q = p;
+        p = p->next;
+    }
+    
+    last = q;
+}
+
 void LinkedList::Insert(int pos, int x){
     if(pos < 0 || pos > Length()){
         throw std::runtime_error("Invalid index");
