@@ -185,6 +185,58 @@ void LinkedList::InsertSorted(int x){
     
 }
 
+void LinkedList::Merge(LinkedList &l2){
+    if(!isSorted() || !l2.isSorted())
+        throw std::logic_error("One or both arrays are not sorted");
+    
+    if(!first){
+        first = l2.first;
+        return;
+    }
+    
+    if(!l2.first){
+        return;
+    }
+    
+    std::shared_ptr<Node> second = l2.first;
+    std::shared_ptr<Node> third;
+    std::shared_ptr<Node> Last;
+    
+    if(first->data < second->data){
+        third = Last = first;
+        first = first->next;
+    }
+    else{
+        third = Last = second;
+        second = second->next;
+    }
+    
+    while(first && second){
+        if(first->data < second->data){
+            Last->next = first;
+            Last = first;
+            first = first->next;
+        } else {
+            Last->next = second;
+            Last = second;
+            second = second->next;
+        }
+    }
+    
+    if(first){
+        Last->next=first;
+        Last = last;
+    }
+    
+    if(second){
+        Last->next=second;
+        Last = l2.last;
+    }
+    
+    first = third;
+    last = Last;
+}
+
 bool LinkedList::isSorted(void){
     std::shared_ptr<Node> p = first;
     
@@ -289,6 +341,26 @@ std::shared_ptr<LinkedList::Node> LinkedList::Search(int x){
     }
     
     return nullptr;
+}
+
+LinkedList LinkedList::operator+(const LinkedList &l2) const{
+    LinkedList concat;
+    
+    std::shared_ptr<Node> p = first;
+    
+    while(p){
+        concat.Append(p->data);
+        p = p->next;
+    }
+    
+    p = l2.first;
+    
+    while(p){
+        concat.Append(p->data);
+        p = p->next;
+    }
+    
+    return concat;
 }
 
 std::ostream & operator<<(std::ostream &os, const LinkedList &l){

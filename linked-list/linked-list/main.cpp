@@ -9,12 +9,15 @@
 #include "linked_list.h"
 
 int main(int argc, const char * argv[]) {
-    int A[] = {3,5,5,5,5,6,7,7,7};
+    int A[] = {3,5,5,5,5,7,7,7,9};
+    int B[] = {4,6,10,11};
     LinkedList link = LinkedList(A,9);
-    //LinkedList link = LinkedList();
+    LinkedList l2 = LinkedList(B, 4);
     
-    std::cout << "My Linked List" << std::endl;
+    std::cout << "Linked List A" << std::endl;
     std::cout << link << std::endl;
+    std::cout << "Linked List B" << std::endl;
+    std::cout << l2 << std::endl;
     /*
     std::cout << "Length: " << link.Length();
     std::cout << ", Sum: " << link.Sum();
@@ -27,7 +30,6 @@ int main(int argc, const char * argv[]) {
      
     link.Insert(4, 20);
     link.Append(30);
-     */
     //std::cout <<"Sorted: "<< (link.isSorted() ? "True" : "False") << std::endl;
     //link.InsertSorted(8);
     std::cout << "Deleting"<<std::endl;
@@ -40,5 +42,15 @@ int main(int argc, const char * argv[]) {
     link.ReverseRecursively();
     link.Append(1);
     std::cout << "After Insert Linked List" << std::endl;
+    std::cout << link << std::endl;
+    */
+    link.RemoveDuplicates();
+    std::cout << "Concat Linked List" << std::endl;
+    std::cout << link + l2 << std::endl;
+    std::cout << "Merged Linked List" << std::endl;
+    link.Merge(l2);
+    std::cout << link << std::endl;
+    std::cout << "Append Linked List" << std::endl;
+    link.Append(12);
     std::cout << link << std::endl;
 }

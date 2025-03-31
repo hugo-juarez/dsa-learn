@@ -16,7 +16,6 @@ private:
     struct Node{
         int data;
         std::shared_ptr<Node> next;
-        ~Node(){std::cout<< "Node with value "<<data <<" deteled!"<<std::endl;}
     };
     std::shared_ptr<Node> first;
     std::shared_ptr<Node> last;
@@ -32,12 +31,14 @@ public:
     void Insert(int pos, int x);
     void Append(int x);
     void InsertSorted(int x);
+    void Merge(LinkedList &l2);
     bool isSorted(void);
     int Delete(int pos);
     int Length(void);
     int Sum(void);
     int Max(void);
     std::shared_ptr<Node> Search(int x);
+    LinkedList operator+(const LinkedList &l2) const;
     friend std::ostream & operator<<(std::ostream &os, const LinkedList &l);
     
     
