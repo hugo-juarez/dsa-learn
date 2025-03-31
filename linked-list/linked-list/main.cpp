@@ -37,6 +37,8 @@ int main(int argc, const char * argv[]) {
     link.ReverseArray();
     link.ReverseSlidingPtr();
     link.Append(50);
+    link.ReverseRecursively();
+    link.Append(1);
     std::cout << "After Insert Linked List" << std::endl;
     std::cout << link << std::endl;
 }

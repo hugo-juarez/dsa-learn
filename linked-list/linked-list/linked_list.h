@@ -20,6 +20,7 @@ private:
     };
     std::shared_ptr<Node> first;
     std::shared_ptr<Node> last;
+    void ReverseRecurs(std::shared_ptr<Node> q, std::shared_ptr<Node> p);
     
 public:
     LinkedList();
@@ -27,6 +28,7 @@ public:
     void RemoveDuplicates(void);
     void ReverseArray(void);
     void ReverseSlidingPtr(void);
+    void ReverseRecursively(void);
     void Insert(int pos, int x);
     void Append(int x);
     void InsertSorted(int x);

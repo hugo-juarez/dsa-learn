@@ -95,6 +95,22 @@ void LinkedList::ReverseSlidingPtr(void){
     first = q;
 }
 
+void LinkedList::ReverseRecursively(void){
+    if(!first)
+        return;
+    ReverseRecurs(nullptr, first);
+}
+
+void LinkedList::ReverseRecurs(std::shared_ptr<Node> q, std::shared_ptr<Node> p){
+    if(!p){
+        last = first;
+        first = q;
+        return;
+    }
+    ReverseRecurs(p, p->next);
+    p->next = q;
+}
+
 void LinkedList::Insert(int pos, int x){
     if(pos < 0 || pos > Length()){
         throw std::runtime_error("Invalid index");
