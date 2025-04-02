@@ -13,6 +13,7 @@ int main(int argc, const char * argv[]) {
     int B[] = {4,6,10,11};
     LinkedList link = LinkedList(A,9);
     LinkedList l2 = LinkedList(B, 4);
+    LinkedList t;
     
     std::cout << "Linked List A" << std::endl;
     std::cout << link << std::endl;
@@ -53,4 +54,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "Append Linked List" << std::endl;
     link.Append(12);
     std::cout << link << std::endl;
+    t = link.createLoop();
+    std::cout << "T is " << (t.isLoop() ? "A" : "NOT A") << " Loop!" << std::endl;
+    std::cout << "Link is " << (link.isLoop() ? "A" : "NOT A") << " Loop!" << std::endl;
 }

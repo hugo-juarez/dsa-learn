@@ -249,6 +249,24 @@ bool LinkedList::isSorted(void){
     return true;
 }
 
+bool LinkedList::isLoop(void){
+    if(!first || !first->next) //List is empty
+        return false;
+    
+    std::shared_ptr<Node> p = first;
+    std::shared_ptr<Node> q = first->next;
+    
+    while(q && q->next){
+        if(p==q)
+            return true;
+        
+        p = p->next;
+        q = q->next->next;
+            
+    }
+    return false;
+}
+
 int LinkedList::Delete(int pos){
     if(!first)
         throw std::logic_error("Array is empty!");
@@ -341,6 +359,15 @@ std::shared_ptr<LinkedList::Node> LinkedList::Search(int x){
     }
     
     return nullptr;
+}
+
+LinkedList LinkedList::createLoop(void){
+    int A[] = {1,2,3,4,5};
+    LinkedList loopList = LinkedList(A, 5);
+    
+    loopList.last->next = loopList.first->next; //So it loops back to 2
+    
+    return loopList;
 }
 
 LinkedList LinkedList::operator+(const LinkedList &l2) const{

@@ -33,11 +33,13 @@ public:
     void InsertSorted(int x);
     void Merge(LinkedList &l2);
     bool isSorted(void);
+    bool isLoop(void);
     int Delete(int pos);
     int Length(void);
     int Sum(void);
     int Max(void);
     std::shared_ptr<Node> Search(int x);
+    LinkedList createLoop(void);
     LinkedList operator+(const LinkedList &l2) const;
     friend std::ostream & operator<<(std::ostream &os, const LinkedList &l);
     
