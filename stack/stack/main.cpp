@@ -6,11 +6,12 @@
 //
 
 #include "stack_array.h"
+#include "stack_linked.h"
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    StackArray s = StackArray(5);
+    StackLinked s = StackLinked();
     s.push(1);s.push(2);s.push(3);s.push(4);s.push(5);
     std::cout << "This is the stack:\n";
     std::cout << s << std::endl;
