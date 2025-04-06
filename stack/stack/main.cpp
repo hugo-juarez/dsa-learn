@@ -9,6 +9,8 @@
 #include "stack_linked.h"
 #include <iostream>
 
+bool isBalanced(const char *s);
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     StackLinked s = StackLinked();
@@ -22,5 +24,28 @@ int main(int argc, const char * argv[]) {
     std::cout << s.peek(3);
     std::cout << ", Top: ";
     std::cout << s.stackTop() << std::endl;
+    std::cout << "Checking if the following string is balanced '((a+b)*(c-d))':\n";
+    std::cout << (isBalanced("((a+b)*(c-d))") ? "Is Balanced":"Is NOT Balanced")<< std::endl;
+    
     return 0;
+}
+
+bool isBalanced(const char *s){
+    
+    StackLinked stack = StackLinked();
+    
+    for(int i=0; s[i]!='\0'; i++){
+        if(s[i] == '(')
+            stack.push('(');
+        else if (s[i] == ')'){
+            
+            if(stack.isEmpty())
+                return false;
+            
+            stack.pop();
+        }
+    }
+    
+    return stack.isEmpty();
+    
 }
