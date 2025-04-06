@@ -7,7 +7,9 @@
 
 #include "stack_array.h"
 #include "stack_linked.h"
+#include "infix_to_post.h"
 #include <iostream>
+#include <memory>
 
 bool isBalanced(const char *s);
 
@@ -26,7 +28,8 @@ int main(int argc, const char * argv[]) {
     std::cout << s.stackTop() << std::endl;
     std::cout << "Checking if the following string is balanced '((a+b)*(c-d))':\n";
     std::cout << (isBalanced("((a+b)*(c-d))") ? "Is Balanced":"Is NOT Balanced")<< std::endl;
-    
+    std::cout << "Converting infix to postfix 'a+b*c-d/e':\n";
+    std::cout << infixToPostfix("a+b*c-d/e") << std::endl;
     return 0;
 }
 
@@ -49,3 +52,4 @@ bool isBalanced(const char *s){
     return stack.isEmpty();
     
 }
+
