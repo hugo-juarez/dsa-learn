@@ -9,7 +9,20 @@
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    int A[] = {1, 3, 5, 6, 9};
+    
+    int sz = sizeof(A)/sizeof(A[0]);
+    QueueArray q = QueueArray(sz);
+    
+    for(int i=0;i<sz;i++)
+        q.enqueue(A[i]);
+    
+    std::cout << "Queue: " << q << std::endl;
+    
+    std::cout << "Starting dequeue: "<< std::endl;
+    
+    for(int i=0; i<sz; i++)
+        std::cout << i+1 << ": " << q.dequeue() << std::endl;;
+    
     return 0;
 }

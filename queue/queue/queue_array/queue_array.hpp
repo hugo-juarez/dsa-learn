@@ -21,10 +21,11 @@ public:
     QueueArray(int sz);
     void enqueue(int x);
     int dequeue();
-    bool isEmpty();
-    bool isFull();
-    int first();
-    int last();
+    bool isEmpty() const;
+    bool isFull() const;
+    int first() const;
+    int last() const;
+    friend std::ostream & operator<<(std::ostream &os, const QueueArray &q);
 };
 
 
