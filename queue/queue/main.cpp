@@ -7,13 +7,14 @@
 
 #include "queue_array/queue_array.hpp"
 #include "circular_queue/circular_queue.hpp"
+#include "queue_linked_list/queue_linked_list.hpp"
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
     int A[] = {1, 3, 5, 6, 9};
     
     int sz = sizeof(A)/sizeof(A[0]);
-    CircularQueue q = CircularQueue(sz);
+    QueueLinked q = QueueLinked();
     
     for(int i=0;i<sz;i++)
         q.enqueue(A[i]);
