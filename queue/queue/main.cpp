@@ -6,16 +6,22 @@
 //
 
 #include "queue_array/queue_array.hpp"
+#include "circular_queue/circular_queue.hpp"
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
     int A[] = {1, 3, 5, 6, 9};
     
     int sz = sizeof(A)/sizeof(A[0]);
-    QueueArray q = QueueArray(sz);
+    CircularQueue q = CircularQueue(sz);
     
     for(int i=0;i<sz;i++)
         q.enqueue(A[i]);
+    
+    q.dequeue();
+    q.dequeue();
+    q.enqueue(10);
+    q.enqueue(11);
     
     std::cout << "Queue: " << q << std::endl;
     
