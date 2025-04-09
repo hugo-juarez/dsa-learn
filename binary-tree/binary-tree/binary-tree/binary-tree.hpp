@@ -19,8 +19,16 @@ private:
         std::shared_ptr<Node> right;
     };
     std::shared_ptr<Node> root;
+    void _preorder(std::shared_ptr<Node> p) const;
+    void _inorder(std::shared_ptr<Node> p) const;
+    void _postorder(std::shared_ptr<Node> p) const;
+    
 public:
     BinaryTree();
+    void preorder() const;
+    void inorder() const;
+    void postorder() const;
+    
 };
 
 #endif /* binary_tree_hpp */

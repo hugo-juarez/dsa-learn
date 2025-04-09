@@ -53,3 +53,55 @@ BinaryTree::BinaryTree(){
     }
     
 }
+
+void BinaryTree::preorder() const{
+    if(!root)
+        return;
+    
+    _preorder(root);
+}
+
+void BinaryTree::_preorder(std::shared_ptr<Node> p) const{
+    if(!p)
+        return;
+    
+    std::cout << p->data << ", ";
+    _preorder(p->left);
+    _preorder(p->right);
+}
+
+
+void BinaryTree::inorder() const{
+    if(!root)
+        return;
+    
+    _inorder(root);
+}
+
+void BinaryTree::_inorder(std::shared_ptr<Node> p) const{
+    if(!p)
+        return;
+    
+    _inorder(p->left);
+    std::cout << p->data << ", ";
+    _inorder(p->right);
+}
+
+
+
+void BinaryTree::postorder() const{
+    if(!root)
+        return;
+    
+    _postorder(root);
+}
+
+void BinaryTree::_postorder(std::shared_ptr<Node> p) const{
+    if(!p)
+        return;
+    
+    _postorder(p->left);
+    _postorder(p->right);
+    std::cout << p->data << ", ";
+}
+
