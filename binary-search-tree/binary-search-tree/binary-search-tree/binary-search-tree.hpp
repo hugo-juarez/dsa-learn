@@ -19,14 +19,19 @@ private:
         int data;
     };
     std::shared_ptr<Node> root;
+    std::shared_ptr<Node> _pre(std::shared_ptr<Node> p);
+    std::shared_ptr<Node> _suc(std::shared_ptr<Node> p);
     std::shared_ptr<Node> _insertRec(std::shared_ptr<Node> p,int x);
+    std::shared_ptr<Node> _removeRec(std::shared_ptr<Node> p,int x);
     void _insertIter(int x);
     bool _search(std::shared_ptr<Node> p,int x);
+    int _height(std::shared_ptr<Node> p);
     
 public:
     BinarySearchTree();
     BinarySearchTree(int A[], int sz);
     void insert(int x);
+    void remove(int x);
     bool search(int x);
 };
 
