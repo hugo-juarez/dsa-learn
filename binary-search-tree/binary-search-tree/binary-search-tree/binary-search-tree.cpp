@@ -6,6 +6,7 @@
 //
 
 #include "binary-search-tree.hpp"
+#include <iostream>
 
 BinarySearchTree::BinarySearchTree() : root(nullptr) {}
 
@@ -13,6 +14,19 @@ BinarySearchTree::BinarySearchTree(int A[], int sz) : root(nullptr){
     for(int i=0;i<sz;i++){
         insert(A[i]);
     }
+}
+
+void BinarySearchTree::inorder(){
+    _inorder(root);
+}
+
+void BinarySearchTree::_inorder(std::shared_ptr<Node> p){
+    if(!p)
+        return;
+    
+    _inorder(p->left);
+    std::cout << p->data << ", ";
+    _inorder(p->right);
 }
 
 void BinarySearchTree::insert(int x){
