@@ -5,6 +5,7 @@
 //  Created by Hugo Juarez on 4/9/25.
 //
 
+#include "binary-search-tree/binary-search-tree.hpp"
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
