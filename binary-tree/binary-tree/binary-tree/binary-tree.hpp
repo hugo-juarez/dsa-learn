@@ -22,12 +22,25 @@ private:
     void _preorder(std::shared_ptr<Node> p) const;
     void _inorder(std::shared_ptr<Node> p) const;
     void _postorder(std::shared_ptr<Node> p) const;
+    void _preorderIter(void) const;
+    void _inorderIter(void) const;
+    void _postorderIter(void) const;
+    int _count(std::shared_ptr<const Node> p) const;
+    int _sum(std::shared_ptr<const Node> p) const;
+    int _height(std::shared_ptr<const Node> p) const;
+    int _leafNodes(std::shared_ptr<const Node> p) const;
     
 public:
     BinaryTree();
     void preorder() const;
     void inorder() const;
     void postorder() const;
+    void levelorder() const;
+    int count() const;
+    int sum() const;
+    int height() const;
+    int leafNodes() const;
+    
     
 };
 
