@@ -34,6 +34,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Inorder:\n";
     tlr3.inorder();
     std::cout << std::endl;
+    tlr3.remove(5);
+    std::cout << "Inorder:\n";
+    tlr3.inorder();
+    std::cout << std::endl;
     
     return 0;
 }

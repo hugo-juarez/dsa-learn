@@ -46,6 +46,36 @@ void AVL::insert(int x){
     root = _insert(root, x);
 }
 
+
+
+std::shared_ptr<AVL::Node> AVL::_pre(std::shared_ptr<Node> p){
+    
+    if(!p )
+        return nullptr;
+    
+    p=p->left;
+    
+    while(p && p->right){
+        p = p->right;
+    }
+    
+    return p;
+}
+
+std::shared_ptr<AVL::Node> AVL::_suc(std::shared_ptr<Node> p){
+    
+    if(!p )
+        return nullptr;
+    
+    p=p->right;
+    
+    while(p && p->left){
+        p = p->left;
+    }
+    
+    return p;
+}
+
 std::shared_ptr<AVL::Node> AVL::_insert(std::shared_ptr<Node> p, int x){
     if(!p){
         std::shared_ptr<Node> t = std::make_shared<Node>();
@@ -128,4 +158,59 @@ std::shared_ptr<AVL::Node> AVL::_RLRotation(std::shared_ptr<Node> p){
     pRL->left = p;
     
     return pRL;
+}
+
+void AVL::remove(int x){
+    root = _remove(root, x);
+}
+
+std::shared_ptr<AVL::Node> AVL::_remove(std::shared_ptr<Node> p, int x){
+    if(!p)
+        return nullptr;
+    
+    if(p->data > x)
+        p->left = _remove(p->left, x);
+    else if(p->data < x)
+        p->right = _remove(p->right, x);
+    else{
+        if(!p->left && !p->right)
+            return nullptr;
+        
+        if(_height(p->left) > _height(p->right)){
+            std::shared_ptr<Node> t = _pre(p);
+            p->data = t->data;
+            p->left = _remove(p->left, t->data);
+        } else{
+            std::shared_ptr<Node> t = _suc(p);
+            p->data = t->data;
+            p->right = _remove(p->right, t->data);
+        }
+    }
+    
+    int bf = _height(p->left) - _height(p->right);
+    
+    if(std::abs(bf) > 1)
+        p = _rotateDel(p, bf);
+        
+    return p;
+    
+}
+
+std::shared_ptr<AVL::Node> AVL::_rotateDel(std::shared_ptr<Node> p, int bf){
+    
+    if(bf > 1){
+        int childBf = _height(p->left->left) - _height(p->left->right);
+        if( childBf < 0)
+            p = _LRRotation(p);
+        else
+            p = _LLRotation(p);
+    }else{
+        int childBf = _height(p->right->left) - _height(p->right->right);
+        if(childBf > 0)
+            p = _RLRotation(p);
+        else
+            p = _RRRotation(p);
+    }
+    
+    return p;
 }

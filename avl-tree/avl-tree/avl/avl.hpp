@@ -22,8 +22,12 @@ private:
     
     int _height(std::shared_ptr<Node> p);
     void _inorder(std::shared_ptr<Node> p);
+    std::shared_ptr<Node> _pre(std::shared_ptr<Node> p);
+    std::shared_ptr<Node> _suc(std::shared_ptr<Node> p);
     std::shared_ptr<Node> _insert(std::shared_ptr<Node> p, int x);
+    std::shared_ptr<Node> _remove(std::shared_ptr<Node> p, int x);
     std::shared_ptr<Node> _rotate(std::shared_ptr<Node> p, int x, int bf);
+    std::shared_ptr<Node> _rotateDel(std::shared_ptr<Node> p, int bf);
     std::shared_ptr<Node> _LLRotation(std::shared_ptr<Node> p);
     std::shared_ptr<Node> _LRRotation(std::shared_ptr<Node> p);
     std::shared_ptr<Node> _RRRotation(std::shared_ptr<Node> p);
@@ -33,7 +37,9 @@ public:
     AVL();
     AVL(int A[], int sz);
     void insert(int x);
+    void remove(int x);
     void inorder();
+    
 };
 
 #endif /* avl_hpp */
