@@ -28,6 +28,12 @@ int main(int argc, const char * argv[]) {
     tlr2.inorder();
     std::cout << std::endl;
     
+    //Bigger data
+    int A[] = {10,20,30,25,28,27,5};
+    AVL tlr3 = AVL(A, 7);
+    std::cout << "Inorder:\n";
+    tlr3.inorder();
+    std::cout << std::endl;
     
     return 0;
 }

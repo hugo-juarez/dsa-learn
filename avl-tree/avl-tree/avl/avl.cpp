@@ -11,6 +11,11 @@
 
 AVL::AVL() : root(nullptr) {}
 
+AVL::AVL(int A[], int sz) : root(nullptr) {
+    for(int i=0; i<sz; i++)
+        insert(A[i]);
+}
+
 int AVL::_height(std::shared_ptr<Node> p){
     if(!p)
         return 0;

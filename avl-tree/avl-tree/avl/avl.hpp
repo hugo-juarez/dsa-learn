@@ -31,6 +31,7 @@ private:
     
 public:
     AVL();
+    AVL(int A[], int sz);
     void insert(int x);
     void inorder();
 };
