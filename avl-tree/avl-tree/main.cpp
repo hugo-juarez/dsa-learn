@@ -9,7 +9,25 @@
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    //LR Rotation
+    AVL tlr;
+    tlr.insert(50);
+    tlr.insert(10);
+    tlr.insert(20);
+    std::cout << "Inorder:\n";
+    tlr.inorder();
+    std::cout << std::endl;
+    
+    //RL Rotation
+    AVL tlr2;
+    tlr2.insert(20);
+    tlr2.insert(50);
+    tlr2.insert(30);
+    std::cout << "Inorder:\n";
+    tlr2.inorder();
+    std::cout << std::endl;
+    
+    
     return 0;
 }

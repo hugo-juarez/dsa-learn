@@ -21,6 +21,7 @@ private:
     std::shared_ptr<Node> root;
     
     int _height(std::shared_ptr<Node> p);
+    void _inorder(std::shared_ptr<Node> p);
     std::shared_ptr<Node> _insert(std::shared_ptr<Node> p, int x);
     std::shared_ptr<Node> _rotate(std::shared_ptr<Node> p, int x, int bf);
     std::shared_ptr<Node> _LLRotation(std::shared_ptr<Node> p);
@@ -31,6 +32,7 @@ private:
 public:
     AVL();
     void insert(int x);
+    void inorder();
 };
 
 #endif /* avl_hpp */

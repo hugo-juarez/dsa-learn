@@ -7,6 +7,7 @@
 
 #include "avl.hpp"
 #include <algorithm>
+#include <iostream>
 
 AVL::AVL() : root(nullptr) {}
 
@@ -21,8 +22,23 @@ int AVL::_height(std::shared_ptr<Node> p){
     
 }
 
+void AVL::inorder(){
+    std::cout << "[";
+    _inorder(root);
+    std::cout << "]";
+}
+
+void AVL::_inorder(std::shared_ptr<Node> p){
+    if(!p)
+        return;
+    
+    _inorder(p->left);
+    std::cout << p->data << ", ";
+    _inorder(p->right);
+}
+
 void AVL::insert(int x){
-    _insert(root, x);
+    root = _insert(root, x);
 }
 
 std::shared_ptr<AVL::Node> AVL::_insert(std::shared_ptr<Node> p, int x){
