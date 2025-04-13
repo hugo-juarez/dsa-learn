@@ -19,6 +19,7 @@ private:
 public:
     Heap(std::vector<int> &v);
     void insert(int x);
+    void sort();
     int remove();
     bool isFull();
     bool isEmpty();

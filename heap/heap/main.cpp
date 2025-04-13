@@ -30,5 +30,14 @@ int main(int argc, const char * argv[]) {
     }
     std::cout << "]" << std::endl;
     
+    h.sort();
+    
+    std::cout << "Vector Sorted: " << std::endl;
+    std::cout << "[";
+    for(int x: vec){
+        std::cout << x << ",";
+    }
+    std::cout << "]" << std::endl;
+    
     return 0;
 }

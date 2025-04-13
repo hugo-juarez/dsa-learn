@@ -37,7 +37,7 @@ int Heap::remove(){
     int x = A[0];
     int i = 0;
     int j = 2*i+1; //Left Child
-    A[0] = A[end--];
+    std::swap(A[0], A[end--]);
     
     
     while(j <= end){
@@ -55,6 +55,13 @@ int Heap::remove(){
     
     return x;
     
+}
+
+void Heap::sort(){
+    int n=end;
+    for(int i=0; i<=n; i++){
+        remove();
+    }
 }
 
 bool Heap::isFull(){
@@ -76,3 +83,4 @@ std::ostream & operator<<(std::ostream &os, const Heap &h){
     os << "]";
     return os;
 }
+
