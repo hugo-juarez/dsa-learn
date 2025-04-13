@@ -19,7 +19,9 @@ private:
 public:
     Heap(std::vector<int> &v);
     void insert(int x);
+    int remove();
     bool isFull();
+    bool isEmpty();
     friend std::ostream & operator<<(std::ostream &os, const Heap &h);
 };
 

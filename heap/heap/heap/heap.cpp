@@ -30,8 +30,39 @@ void Heap::insert(int x){
     A[i] = x;
 }
 
+int Heap::remove(){
+    if(isEmpty())
+        throw std::runtime_error("Underflow of heap");
+    
+    int x = A[0];
+    int i = 0;
+    int j = 2*i+1; //Left Child
+    A[0] = A[end--];
+    
+    
+    while(j <= end){
+        if(j+1 <= end && A[j]<A[j+1])
+            j += 1;
+        
+        if(A[i] < A[j]){
+            std::swap(A[i], A[j]);
+            i = j;
+            j = 2*i+1;
+        } else{
+            break;
+        }
+    }
+    
+    return x;
+    
+}
+
 bool Heap::isFull(){
     return A.size() == end+1;
+}
+
+bool Heap::isEmpty(){
+    return end == -1;
 }
 
 std::ostream & operator<<(std::ostream &os, const Heap &h){
