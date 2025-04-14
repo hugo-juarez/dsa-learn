@@ -13,7 +13,7 @@
 
 class Sort {
 public:
-    void bubble(std::vector<int> &arr);
+    void bubbleSort(std::vector<int> &arr);
 };
 
 #endif /* sort_hpp */

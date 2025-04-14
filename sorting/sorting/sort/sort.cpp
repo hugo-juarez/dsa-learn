@@ -7,7 +7,7 @@
 
 #include "sort.hpp"
 
-void Sort::bubble(std::vector<int> &A){
+void Sort::bubbleSort(std::vector<int> &A){
     
     std::size_t n = A.size();
     bool swapped = false;

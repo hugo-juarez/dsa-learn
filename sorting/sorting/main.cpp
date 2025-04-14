@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     display(A);
     std::cout<<std::endl;
     
-    s.bubble(A);
+    s.bubbleSort(A);
     
     std::cout<<"Bubble Sort:\n";
     display(A);
