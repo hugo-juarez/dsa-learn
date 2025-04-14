@@ -19,9 +19,17 @@ int main(int argc, const char * argv[]) {
     display(A);
     std::cout<<std::endl;
     
+#if false
     s.bubbleSort(A);
     
     std::cout<<"Bubble Sort:\n";
+    display(A);
+    std::cout<<std::endl;
+#endif
+    
+    s.insertionSort(A);
+    
+    std::cout<<"Insetion Sort:\n";
     display(A);
     std::cout<<std::endl;
     

@@ -23,3 +23,20 @@ void Sort::bubbleSort(std::vector<int> &A){
         if(!swapped) break;
     }
 }
+
+void Sort::insertionSort(std::vector<int> &A){
+    std::size_t n = A.size();
+    
+    for(std::size_t i = 1; i<n; i++){
+        int key = A[i];
+        
+        std::size_t j = i;
+        
+        while(j>0 && A[j-1]>key){
+            A[j]=A[j-1];
+            j--;
+        }
+        A[j] = key;
+    }
+    
+}
