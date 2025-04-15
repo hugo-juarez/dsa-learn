@@ -46,14 +46,19 @@ int main(int argc, const char * argv[]) {
     display(A);
     std::cout<<std::endl;
     
-#endif
     
     s.mergeSort(A);
     
     std::cout<<"Merge Sort:\n";
     display(A);
     std::cout<<std::endl;
+#endif
     
+    s.countSort(A);
+    
+    std::cout<<"Count Sort:\n";
+    display(A);
+    std::cout<<std::endl;
     
     return 0;
     

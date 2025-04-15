@@ -23,6 +23,7 @@ public:
     void selectionSort(std::vector<int> &A);
     void quickSort(std::vector<int> &A);
     void mergeSort(std::vector<int> &A);
+    void countSort(std::vector<int> &A);
 };
 
 #endif /* sort_hpp */

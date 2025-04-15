@@ -142,3 +142,29 @@ void Sort::_merge(std::vector<int> &A, std::size_t l, std::size_t h, std::size_t
         A[l+k] = B[k];
     
 }
+
+void Sort::countSort(std::vector<int> &A){
+    int max = A[0];
+    size_t n = A.size();
+    
+    //linear search for max
+    for(size_t i=1; i<n; i++){
+        if(A[i]>max)
+            max = A[i];
+    }
+    
+    //Create count array
+    std::vector<int> count(max+1);
+    
+    for(size_t j=0; j<n; j++)
+        count[A[j]] +=1;
+    
+    size_t i=0;
+    
+    for(int k=0; k<=max; k++){
+        while(count[k]>0){
+            A[i++] = k;
+            count[k] -= 1;
+        }
+    }
+}
