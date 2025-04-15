@@ -25,16 +25,24 @@ int main(int argc, const char * argv[]) {
     std::cout<<"Bubble Sort:\n";
     display(A);
     std::cout<<std::endl;
-#endif
+
     
     s.insertionSort(A);
     
     std::cout<<"Insetion Sort:\n";
     display(A);
     std::cout<<std::endl;
+#endif
+    
+    s.selectionSort(A);
+    
+    std::cout<<"Selection Sort:\n";
+    display(A);
+    std::cout<<std::endl;
     
     return 0;
 }
+
 
 void display(const std::vector<int> &A){
     std::cout<<"[";

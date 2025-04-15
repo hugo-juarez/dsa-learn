@@ -38,5 +38,18 @@ void Sort::insertionSort(std::vector<int> &A){
         }
         A[j] = key;
     }
-    
 }
+
+void Sort::selectionSort(std::vector<int> &A){
+    std::size_t n = A.size();
+    
+    for(std::size_t i=0; i<n; i++){
+        std::size_t min = i;
+        for(std::size_t j=i+1; j<n; j++){
+            if (A[j]<A[min])
+                min = j;
+        }
+        std::swap(A[min], A[i]);
+    }
+}
+
