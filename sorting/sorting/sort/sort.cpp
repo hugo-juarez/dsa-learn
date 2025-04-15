@@ -53,3 +53,48 @@ void Sort::selectionSort(std::vector<int> &A){
     }
 }
 
+void Sort::quickSort(std::vector<int> &A){
+    std::size_t n = A.size();
+    
+    _quickSort(A, 0, n);
+    
+}
+
+void Sort::_quickSort(std::vector<int> &A, std::size_t l, std::size_t h){
+    
+    if(h-l<=1)
+        return;
+    
+    _medianOfThree(A, l, h-1); //Put median element as first for pivot
+    
+    int pivot = A[l];
+    
+    std::size_t i = l;
+    std::size_t j = h; //Highest value i not inclusive
+    
+    while(i < j){
+        do{i++;}while(A[i] < pivot);
+        do{j--;}while(A[j] > pivot);
+        if(i < j)
+            std::swap(A[j],A[i]);
+    }
+    
+    std::size_t mid = j;
+    
+    std::swap(A[l], A[j]);
+    
+    _quickSort(A, l, mid);
+    _quickSort(A, mid+1, h);
+    
+}
+
+void Sort::_medianOfThree(std::vector<int> &A, std::size_t l, std::size_t h){
+    std::size_t mid = (l+h)/2;
+    
+    if(A[h] < A[l]) std::swap(A[l], A[h]);
+    if(A[mid] < A[l]) std::swap(A[l], A[mid]);
+    if(A[mid] > A[h]) std::swap(A[mid], A[h]);
+    
+    std::swap(A[mid], A[l]);
+    
+}

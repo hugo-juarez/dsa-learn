@@ -32,15 +32,24 @@ int main(int argc, const char * argv[]) {
     std::cout<<"Insetion Sort:\n";
     display(A);
     std::cout<<std::endl;
-#endif
+
     
     s.selectionSort(A);
     
     std::cout<<"Selection Sort:\n";
     display(A);
     std::cout<<std::endl;
+#endif
+    
+    s.quickSort(A);
+    
+    std::cout<<"Quick Sort:\n";
+    display(A);
+    std::cout<<std::endl;
     
     return 0;
+    
+
 }
 
 
