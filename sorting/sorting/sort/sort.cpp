@@ -98,3 +98,47 @@ void Sort::_medianOfThree(std::vector<int> &A, std::size_t l, std::size_t h){
     std::swap(A[mid], A[l]);
     
 }
+
+void Sort::mergeSort(std::vector<int> &A){
+    std::size_t n = A.size();
+    
+    _mergeSort(A, 0, n);
+}
+
+void Sort::_mergeSort(std::vector<int> &A, size_t l, size_t h){
+    
+    if(h-l <=1)
+        return;
+    
+    size_t mid = l + (h-l)/2;
+    
+    _mergeSort(A, l, mid);
+    _mergeSort(A, mid, h);
+    
+    _merge(A, l, h, mid);
+    
+}
+
+void Sort::_merge(std::vector<int> &A, std::size_t l, std::size_t h, std::size_t mid){
+    
+    if(h-l <=0)
+        return;
+    
+    std::vector<int> B;
+    size_t i = l;
+    size_t j = mid;
+    
+    while(i < mid && j < h){
+        if(A[i]<A[j])
+            B.push_back(A[i++]);
+        else
+            B.push_back(A[j++]);
+    }
+    
+    while(i<mid) B.push_back(A[i++]);
+    while(j<h) B.push_back(A[j++]);
+    
+    for(size_t k=0; k<B.size();k++)
+        A[l+k] = B[k];
+    
+}

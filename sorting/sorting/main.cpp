@@ -39,13 +39,21 @@ int main(int argc, const char * argv[]) {
     std::cout<<"Selection Sort:\n";
     display(A);
     std::cout<<std::endl;
-#endif
     
     s.quickSort(A);
     
     std::cout<<"Quick Sort:\n";
     display(A);
     std::cout<<std::endl;
+    
+#endif
+    
+    s.mergeSort(A);
+    
+    std::cout<<"Merge Sort:\n";
+    display(A);
+    std::cout<<std::endl;
+    
     
     return 0;
     
