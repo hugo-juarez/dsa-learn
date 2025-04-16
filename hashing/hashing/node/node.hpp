@@ -9,5 +9,12 @@
 #define node_hpp
 
 #include <stdio.h>
+#include <memory>
+
+class Node{
+public:
+    int data;
+    std::shared_ptr<Node> next;
+};
 
 #endif /* node_hpp */
