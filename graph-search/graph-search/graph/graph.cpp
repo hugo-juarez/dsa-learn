@@ -47,3 +47,22 @@ void Graph::bfs(){
     
     cout << "]";
 }
+
+void Graph::dfs(){
+    cout<< "[";
+    _dfs(1);
+    cout<< "]"<<endl;
+}
+
+void Graph::_dfs(int i){
+    static vector<int> visited(n, 0);
+    
+    visited[i] = 1;
+    
+    for(int j=0; j<n; j++){
+        if(g[i][j] == 1 && !visited[j])
+            _dfs(j);
+    }
+    
+    cout << i << ",";
+}

@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
     
     Graph g(G, 7);
     
-    g.bfs();
+    g.dfs();
     
     cout << endl;
     

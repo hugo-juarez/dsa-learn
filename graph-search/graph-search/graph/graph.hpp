@@ -18,6 +18,7 @@ class Graph {
 private:
     vector<vector<int>>& g;
     int n;
+    void _dfs(int i);
 public:
     Graph(vector<vector<int>> &v, int sz);
     void bfs();
